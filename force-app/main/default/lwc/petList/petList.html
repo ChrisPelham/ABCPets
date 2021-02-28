@@ -1,0 +1,19 @@
+<template>
+	<lightning-card>
+        <h3 slot="title">
+            <img src={petIcon} alt="Pet Icon" class="customIcon">
+            Related Pets ({numberOfPets})
+        </h3> 
+		<div class="slds-m-around_medium">
+            <template if:true={pets}>
+                <lightning-datatable
+                    key-field="petId"
+                    data={pets}
+                    columns={columns}
+                    onsave={handleSave}
+                    draft-values={draftValues}>
+                </lightning-datatable>
+            </template>
+        </div>
+	</lightning-card>
+</template>

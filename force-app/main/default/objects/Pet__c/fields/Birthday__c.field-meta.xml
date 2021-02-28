@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Birthday__c</fullName>
+    <description>Shows Birthday cake image on pet&#39;s birthday.</description>
+    <externalId>false</externalId>
+    <formula>IF(AND(MONTH(Birthdate__c) = MONTH(TODAY()), DAY(Birthdate__c) = DAY(TODAY())), IMAGE(&quot;https://abcpets2-dev-ed--c.documentforce.com/servlet/servlet.FileDownload?file=0155Y0000056sse&quot;, &quot;Birthday Cake&quot;, 30, 30),&quot;&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Shows Birthday cake image on pet&#39;s birthday.</inlineHelpText>
+    <label>Birthday</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

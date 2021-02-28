@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Other_Description</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISPICKVAL(Relation__c, &quot;Other&quot;), ISNULL( Relationship_Description__c))</errorConditionFormula>
+    <errorMessage>Please enter a relationship description or selected a different relation to the pet.</errorMessage>
+</ValidationRule>
