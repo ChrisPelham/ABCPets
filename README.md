@@ -25,7 +25,7 @@ Implement a solution for ABC Pets to track customer’s pets, their families and
 
 ## Methods
 
-### Design and Discovery (4 hours)
+### Design and Discovery 
 During the design and discovery phase I read through the requirements multiple times to make sure I was making the best possible assumptions and planning out my data structure correctly. I listed out the Custom Objects I would need to complete the requirements as well as the fields those objects should contain. I then drew relationship diagrams to ensure that the records would be related correctly.
 
 Once I had a good idea of the data structure, I determined what logic would be needed to meet the requirements and the best way to put that logic in place.  This included writing pseudocode for the trigger methods, LWC components and its controller as well as the SOQL queries required.
@@ -86,18 +86,18 @@ Custom Validation Rules:
 
 If a user attempts to save a record with ‘Other’ selected as the relationship and does not provide a relationship description an error will appear instructing the user to provide a description or select a different type of relationship.
 
-### Pet Process Builder (30 minutes)
+### Pet Process Builder 
 When a new pet is created, the Pets process kicks off. If a pet is associated with an owner but not a family, and the owner is associated with a family, the process will associate the pet with the owner’s family. This is safeguard to ensure that all applicable relationships, between a pet and its family, are in place.
 
-### Pet Trigger (6 hours)
+### Pet Trigger 
 Due to the complex nature of the relationships between pets and their family members, I chose to use an Apex trigger to associate new Pet’s with their family members. This would not have been possible with a Process Builder or Workflow.
 
 When a new Pet is inserted into the database the After Insert trigger begins the process of associating the pet with its family member. If the Pet is associated with an owner, and its owner is associated with a family, the process retrieves all People__c records associated with that family. The process then parses through the list of People__c records and creates a Relationship__c record with the pet. If the People__c record is the Owner’s record, the relationship type is set to ‘Owner’, otherwise the relationship type is set to ‘Family Member’.
 
-### ABC Pets App (1 hour)
+### ABC Pets App
 I created a custom application, ABC Pets, for this implementation. The app only contains tabs for the necessary objects needed by the client; Family, Pets and People.  This has been set as the Org default and each page as the application default.
 
-### Related Pets List LWC (4 hours)
+### Related Pets List LWC 
 Related lists do not allow inline editing within Salesforce. In order to provide the ability to update a pet’s birthdate from a related list, I had to create a custom Related Pets list LWC. The component displays a datatable of all pets associated with a Family__c record Id. I chose to display the following pet information in the datatable:
 - Pet’s Name hyperlinked to the pet’s record.
 - Owner’s Name hyperlinked to the owner’s record.
@@ -112,7 +112,7 @@ The pet data is retrieved via an Apex method which accepts a record Id as its pa
 
 I also used this as an opportunity to alert the user if any of the related pets have a birthday. An info toast message is displayed to the user if the data that is returned contains one or more pets with birthdays.
 
-### Security (1 hour)
+### Security 
 
 __Organization Wide Defaults__
 
